@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Kanda Seeds</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Modern Green Theme CSS Variables - Contact */
+    :root {
+      --primary-green: #1B5E20;
+      --secondary-green: #2E7D32;
+      --accent-green: #4CAF50;
+      --light-green: #81C784;
+      --extra-light-green: #C8E6C9;
+      --success-green: #00C853;
+      --dark-green: #0D4F16;
+      --white: #FFFFFF;
+      --off-white: #FAFAFA;
+      --light-gray: #F5F5F5;
+      --medium-gray: #9E9E9E;
+      --dark-gray: #424242;
+      --text-dark: #212121;
+      --text-light: rgba(255, 255, 255, 0.87);
+      
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #4CAF50 100%);
+      --gradient-light: linear-gradient(135deg, #C8E6C9 0%, #E8F5E8 100%);
+      --gradient-overlay: linear-gradient(rgba(27, 94, 32, 0.8), rgba(46, 125, 50, 0.6));
+      
+      /* Shadows */
+      --shadow-light: 0 2px 12px rgba(27, 94, 32, 0.08);
+      --shadow-medium: 0 8px 32px rgba(27, 94, 32, 0.12);
+      --shadow-heavy: 0 16px 64px rgba(27, 94, 32, 0.16);
+      --shadow-glow: 0 0 30px rgba(76, 175, 80, 0.3);
+      
+      /* Transitions */
+      --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bouncy: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    /* Reset and Base Styles */
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--gradient-light);
+      padding-top: 80px;
+      line-height: 1.7;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+    
+    /* Custom Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    /* Enhanced Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-medium);
+      padding: 8px 0;
+      height: auto;
+      min-height: 80px;
+      transition: var(--transition-smooth);
+    }
+    
+    .navbar-brand {
+      font-weight: 800;
+      color: var(--primary-green);
+      font-size: 1.5rem;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar-brand:hover {
+      color: var(--accent-green);
+      transform: scale(1.02);
+    }
+    
+    .navbar-brand span {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .navbar-brand img {
+      height: 55px;
+      width: auto;
+      margin-right: 12px;
+      transition: var(--transition-smooth);
+      border-radius: 8px;
+      box-shadow: var(--shadow-light);
+    }
+    
+    .nav-link {
+      font-weight: 600;
+      color: var(--secondary-green);
+      position: relative;
+      padding: 8px 16px !important;
+      margin: 0 4px;
+      border-radius: 8px;
+      transition: var(--transition-smooth);
+    }
+    
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      transform: translateX(-50%);
+      transition: var(--transition-smooth);
+      border-radius: 2px;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-green);
+      background: var(--extra-light-green);
+      transform: translateY(-2px);
+    }
+    
+    .nav-link:hover::before {
+      width: 80%;
+    }
+    
+    /* Enhanced Header */
+    .page-header {
+      background: var(--gradient-overlay), 
+                  url('https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-light);
+      text-align: center;
+      padding: 8rem 1rem;
+      margin-bottom: 4rem;
+      height: 50vh;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-overlay);
+      opacity: 0.9;
+    }
+    
+    .page-header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px
+      );
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    .page-header .container,
+    .page-header h1,
+    .page-header p {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .page-header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+      animation: fadeInUp 0.8s ease-out;
+      margin-bottom: 1.5rem;
+    }
+    
+    .page-header p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Enhanced Contact Section */
+    .contact-section {
+      padding: 4rem 0;
+      position: relative;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(27, 94, 32, 0.08) 0%, transparent 50%);
+    }
+    
+    .contact-info-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      box-shadow: var(--shadow-medium);
+      padding: 3rem 2.5rem;
+      height: 100%;
+      border: 1px solid rgba(76, 175, 80, 0.1);
+      transition: var(--transition-smooth);
+      animation: slideInLeft 0.8s ease-out;
+    }
+    
+    .contact-info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .contact-info-card h2 {
+      color: var(--primary-green);
+      font-weight: 800;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .contact-info-card h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-radius: 12px;
+      transition: var(--transition-smooth);
+    }
+    
+    .contact-info-item:hover {
+      background: rgba(76, 175, 80, 0.05);
+      transform: translateX(8px);
+    }
+    
+    .contact-icon {
+      background: var(--gradient-primary);
+      color: var(--white);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-medium);
+      transition: var(--transition-bouncy);
+    }
+    
+    .contact-info-item:hover .contact-icon {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .contact-icon i {
+      font-size: 1.5rem;
+    }
+    
+    .contact-details h4 {
+      color: var(--primary-green);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    .contact-details p {
+      margin-bottom: 0;
+      color: var(--dark-gray);
+      line-height: 1.6;
+    }
+    
+    /* Enhanced Contact Form */
+    .contact-form {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      box-shadow: var(--shadow-medium);
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(76, 175, 80, 0.1);
+      transition: var(--transition-smooth);
+      animation: slideInRight 0.8s ease-out;
+    }
+    
+    .contact-form:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .form-title {
+      color: var(--primary-green);
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 1rem;
+      font-weight: 800;
+      font-size: 2rem;
+    }
+    
+    .form-title::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+    
+    .form-title::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 4px;
+      background: var(--success-green);
+      border-radius: 2px;
+    }
+    
+    .form-control {
+      border: 2px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition-smooth);
+      font-size: 1rem;
+      background: var(--white);
+    }
+    
+    .form-control:focus {
+      border-color: var(--accent-green);
+      box-shadow: 0 0 0 0.3rem rgba(76, 175, 80, 0.1);
+      transform: translateY(-2px);
+      background: var(--white);
+    }
+    
+    .form-control:hover {
+      border-color: var(--light-green);
+    }
+    
+    .btn-primary {
+      background: var(--gradient-primary);
+      border: none;
+      padding: 1rem 3rem;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: var(--transition-bouncy);
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-medium);
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: var(--transition-smooth);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: var(--shadow-glow);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+      transition: left 0.6s ease;
+    }
+    
+    /* Map Container */
+    .map-container {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-heavy);
+      margin: 4rem auto 2rem;
+      border: 3px solid rgba(76, 175, 80, 0.2);
+      transition: var(--transition-smooth);
+      max-width: 1000px;
+    }
+    
+    .map-container:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+    }
+    
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin: 4rem 0 3rem;
+      color: var(--primary-green);
+      position: relative;
+      padding-bottom: 1.5rem;
+      font-weight: 800;
+    }
+    
+    .section-title::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 6px;
+      background: var(--gradient-primary);
+      border-radius: 3px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 6px;
+      background: var(--success-green);
+      border-radius: 3px;
+    }
+    
+    /* Success Alert Enhancement */
+    .alert-success {
+      background: var(--gradient-primary);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      padding: 1.5rem;
+      animation: fadeInUp 0.5s ease-out;
+    }
+    
+    .alert-success i {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    
+    /* Modern Footer */
+    footer {
+      background: var(--gradient-primary);
+      color: var(--text-light);
+      padding: 80px 0 40px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 4rem;
+    }
+    
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: 50px 50px;
+    }
+    
+    footer h5 {
+      font-weight: 800;
+      margin-bottom: 28px;
+      position: relative;
+      padding-bottom: 12px;
+      color: var(--white);
+    }
+    
+    footer h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: var(--success-green);
+      border-radius: 2px;
+    }
+    
+    footer a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      padding: 4px 0;
+      display: inline-block;
+    }
+    
+    footer a:hover {
+      color: var(--white);
+      transform: translateX(8px);
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      transition: var(--transition-bouncy);
+      backdrop-filter: blur(10px);
+    }
+    
+    .social-icons a:hover {
+      background: var(--success-green);
+      transform: translateY(-6px) rotate(360deg);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .page-header {
+        padding: 6rem 1rem;
+        height: 45vh;
+        background-attachment: scroll;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      .navbar {
+        min-height: 70px;
+      }
+      
+      .navbar-brand img {
+        height: 45px;
+      }
+      
+      .page-header {
+        padding: 5rem 1rem;
+        height: 40vh;
+      }
+      
+      .contact-info-card,
+      .contact-form {
+        padding: 2.5rem 2rem;
+      }
+      
+      .map-container iframe {
+        height: 350px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.3rem;
+      }
+      
+      .navbar-brand img {
+        height: 40px;
+      }
+      
+      .page-header {
+        padding: 4rem 1rem;
+        height: 35vh;
+      }
+      
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .contact-info-card,
+      .contact-form {
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+      }
+      
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .contact-icon i {
+        font-size: 1.2rem;
+      }
+      
+      .map-container iframe {
+        height: 300px;
+      }
+      
+      .btn-primary {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .navbar-brand img {
+        height: 35px;
+      }
+      
+      .page-header {
+        padding: 3rem 1rem;
+        height: 30vh;
+      }
+      
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .contact-info-card,
+      .contact-form {
+        padding: 1.5rem 1rem;
+      }
+      
+      .form-title,
+      .contact-info-card h2 {
+        font-size: 1.5rem;
+      }
+      
+      .map-container iframe {
+        height: 250px;
+      }
+    }
+    
+    /* Performance optimizations */
+    .contact-info-card,
+    .contact-form {
+      will-change: transform;
+    }
+    
+    /* Accessibility improvements */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* Focus states */
+    .btn-primary:focus,
+    .form-control:focus {
+      outline: 3px solid var(--accent-green);
+      outline-offset: 2px;
+    }
+
+    /* FAQ Section Styles */
+    .faq-section {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+    }
+
+    .faq-item {
+      border: none;
+      margin-bottom: 1rem;
+      border-radius: 16px !important;
+      overflow: hidden;
+      box-shadow: var(--shadow-light);
+      background: rgba(255, 255, 255, 0.95);
+      transition: var(--transition-smooth);
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .accordion-button {
+      background: var(--white);
+      border: none;
+      padding: 1.5rem 2rem;
+      font-weight: 600;
+      color: var(--primary-green);
+      border-radius: 16px !important;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: var(--gradient-primary);
+      color: var(--white);
+      box-shadow: none;
+    }
+
+    .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234CAF50'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      transition: var(--transition-smooth);
+    }
+
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+
+    .accordion-body {
+      padding: 1.5rem 2rem;
+      color: var(--dark-gray);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      background: 
+        radial-gradient(circle at 30% 70%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(27, 94, 32, 0.08) 0%, transparent 50%);
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(76, 175, 80, 0.1);
+      transition: var(--transition-bouncy);
+      height: 100%;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .stars {
+      color: #FFD700;
+    }
+
+    .stars i {
+      font-size: 1.2rem;
+      margin-right: 0.2rem;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--dark-gray);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-author h5 {
+      color: var(--primary-green);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .testimonial-author span {
+      color: var(--medium-gray);
+      font-size: 0.95rem;
+    }
+
+    /* Business Info Section */
+    .business-info-section {
+      background: var(--white);
+    }
+
+    .business-card,
+    .location-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-medium);
+      border: 1px solid rgba(76, 175, 80, 0.1);
+      transition: var(--transition-smooth);
+      height: 100%;
+    }
+
+    .business-card:hover,
+    .location-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .business-icon,
+    .location-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .business-icon i,
+    .location-icon i {
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .business-card h3,
+    .location-card h3 {
+      color: var(--primary-green);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .hours-list {
+      margin-top: 1rem;
+    }
+
+    .hour-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(76, 175, 80, 0.1);
+    }
+
+    .hour-item:last-child {
+      border-bottom: none;
+    }
+
+    .hour-item.special {
+      background: var(--extra-light-green);
+      padding: 1rem;
+      border-radius: 8px;
+      border-bottom: none;
+      margin-top: 1rem;
+    }
+
+    .day {
+      font-weight: 600;
+      color: var(--primary-green);
+    }
+
+    .time {
+      color: var(--dark-gray);
+      font-weight: 500;
+    }
+
+    .location-details p {
+      color: var(--dark-gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .location-features {
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: var(--dark-gray);
+    }
+
+    .feature-item i {
+      color: var(--accent-green);
+      margin-right: 1rem;
+      width: 20px;
+    }
+
+    .btn-outline-success {
+      border: 2px solid var(--accent-green);
+      color: var(--accent-green);
+      background: transparent;
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-outline-success:hover {
+      background: var(--accent-green);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design for New Sections */
+    @media (max-width: 768px) {
+      .accordion-button {
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .accordion-body {
+        padding: 1rem 1.5rem;
+      }
+
+      .testimonial-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .business-card,
+      .location-card {
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .business-icon,
+      .location-icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      .business-icon i,
+      .location-icon i {
+        font-size: 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        margin-right: 0 !important;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hour-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .testimonial-text {
+        font-size: 1rem;
+      }
+
+      .business-card h3,
+      .location-card h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Kanda Seeds</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-green: #2e7d32;
+      --secondary-green: #4CAF50;
+      --accent-orange: #ff9800;
+      --light-bg: #f8f9fa;
+      --dark-text: #333;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+      padding-top: 75px;
+    }
+    
+    /* Navbar */
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background-color: white;
+      height: 75px;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary-green);
+    }
+    
+    .navbar-brand span {
+      color: var(--accent-orange);
+    }
+    
+    .nav-link {
+      font-weight: 600;
+      color: var(--primary-green);
+      transition: color 0.3s;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent-orange);
+    }
+    
+    /* Header */
+    .page-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                  url('https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(76, 175, 80, 0.08) 0, rgba(76,175,80,0.08) 120px, transparent 121px),
+    radial-gradient(circle at 90% 20%, rgba(255, 152, 0, 0.06) 0, rgba(255,152,0,0.06) 140px, transparent 141px),
+    radial-gradient(circle at 20% 90%, rgba(46, 125, 50, 0.05) 0, rgba(46,125,50,0.05) 160px, transparent 161px),
+    url("");
+      padding: 3rem 0;
+    }
+    
+    .contact-info-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      height: 100%;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-icon {
+      background-color: var(--primary-green);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-details h4 {
+      color: var(--primary-green);
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-details p {
+      margin-bottom: 0;
+    }
+    
+    /* Map */
+    .map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+    
+    /* Form */
+    .contact-form {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    
+    .form-title {
+      color: var(--primary-green);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .form-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-orange);
+    }
+    
+    .form-control {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-green);
+      border-color: var(--primary-green);
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-green);
+      border-color: var(--secondary-green);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--primary-green);
+      color: white;
+      padding: 60px 0 30px;
+      margin-top: 4rem;
+    }
+    
+    footer h5 {
+      font-weight: 700;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    footer h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--accent-orange);
+    }
+    
+    footer a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    footer a:hover {
+      color: white;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background: var(--accent-orange);
+      transform: translateY(-3px);
+    }
+
+
+    .navbar-brand img {
+      height: 60px;
+      width: auto;
+      margin-right: 8px;
+    }
+    
+    .navbar-collapse {
+      background: white;
+      padding: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .navbar-brand img {
+        height: 35px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .navbar-brand img {
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+ <!-- navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.jpg" alt="Kanda Seeds Logo">
+      Athrav<span> Agro Seeds</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Get in Touch With Us</h1>
+      <p class="lead">We're here to answer any questions you may have</p>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Information -->
+        <div class="col-lg-5 mb-4">
+          <div class="contact-info-card">
+            <h2 class="mb-4" style="color: var(--primary-green);">Contact Information</h2>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Company Address</h4>
+                <p>123 Farm Road, Agricultural Zone<br>Nashik, Maharashtra 422101</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Phone Number</h4>
+                <p>+91 98765 43210<br>+91 91234 56789</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Email Address</h4>
+                <p>info@kandaseeds.com<br>support@kandaseeds.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9AM - 5PM<br>Saturday: 10AM - 2PM</p>
+              </div>
+            </div>
+            
+           
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+          <div class="contact-form">
+            <h3 class="form-title">Send Us a Message</h3>
+            <form id="contactForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+              </div>
+              
+              <div class="form-group">
+                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+              </div>
+              
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
+            
+            <!-- Success Message (Hidden by default) -->
+            <div id="formSuccess" class="alert alert-success mt-4" role="alert" style="display: none;">
+              <i class="fas fa-check-circle me-2"></i> Thank you for your message! We'll get back to you soon.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <div class="container">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120058.39507596405!2d73.70530742273436!3d19.990599999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddd290b09914b3%3A0xcb07845d9d28215c!2sNashik%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1689777821307!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq-section py-5">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="faqAccordion">
+            <!-- FAQ Item 1 -->
+            <div class="accordion-item faq-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  <i class="fas fa-seedling me-3"></i>
+                  What types of onion seeds do you offer?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We offer a wide variety of onion seeds including Red Onion Seeds, White Onion Seeds, Yellow Onion Seeds, and Hybrid varieties. All our seeds are carefully selected for high germination rates and superior yield quality.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="accordion-item faq-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  <i class="fas fa-shipping-fast me-3"></i>
+                  What is your delivery timeframe?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We ensure quick delivery within 3-5 business days for local orders and 7-10 business days for nationwide delivery. Express delivery options are also available for urgent requirements.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="accordion-item faq-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  <i class="fas fa-certificate me-3"></i>
+                  Are your seeds certified?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, all our seeds are certified and tested for quality. We maintain strict quality control standards and provide certificates for germination rates and seed purity with every purchase.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="accordion-item faq-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  <i class="fas fa-handshake me-3"></i>
+                  Do you provide farming guidance?
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Absolutely! We provide comprehensive farming guidance including planting techniques, irrigation schedules, pest management, and harvesting tips. Our agricultural experts are always available to support our farmers.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="accordion-item faq-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  <i class="fas fa-undo me-3"></i>
+                  What is your return policy?
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We offer a 30-day return policy for unused seeds. If you're not satisfied with the germination rate or quality, we provide full refund or replacement. Customer satisfaction is our top priority.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section py-5">
+    <div class="container">
+      <h2 class="section-title">What Our Farmers Say</h2>
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="testimonial-card">
+            <div class="stars mb-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Athrav Agro Seeds has been our trusted partner for over 5 years. Their red onion seeds consistently deliver excellent yields and quality produce."</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h5>Ramesh Patil</h5>
+                <span>Farmer, Nashik</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="testimonial-card">
+            <div class="stars mb-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"The hybrid varieties from Athrav Agro have increased our crop yield by 40%. The technical support team is very knowledgeable and helpful."</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h5>Sunita Sharma</h5>
+                <span>Agricultural Entrepreneur</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="testimonial-card">
+            <div class="stars mb-3">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Excellent seed quality and timely delivery. The germination rate is consistently above 95%. Highly recommend for commercial farming."</p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h5>Vikram Singh</h5>
+                <span>Commercial Farmer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Hours & Location -->
+  <section class="business-info-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4">
+          <div class="business-card">
+            <div class="business-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Business Hours</h3>
+            <div class="hours-list">
+              <div class="hour-item">
+                <span class="day">Monday - Friday</span>
+                <span class="time">9:00 AM - 6:00 PM</span>
+              </div>
+              <div class="hour-item">
+                <span class="day">Saturday</span>
+                <span class="time">10:00 AM - 4:00 PM</span>
+              </div>
+              <div class="hour-item">
+                <span class="day">Sunday</span>
+                <span class="time">Closed</span>
+              </div>
+              <div class="hour-item special">
+                <span class="day">Emergency Support</span>
+                <span class="time">24/7 Available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+          <div class="location-card">
+            <div class="location-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Visit Our Office</h3>
+            <div class="location-details">
+              <p><strong>Head Office</strong></p>
+              <p>123 Farm Road, Agricultural Zone<br>Nashik, Maharashtra 422101</p>
+              
+              <div class="location-features">
+                <div class="feature-item">
+                  <i class="fas fa-car"></i>
+                  <span>Free Parking Available</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-wheelchair"></i>
+                  <span>Wheelchair Accessible</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-seedling"></i>
+                  <span>Seed Display Center</span>
+                </div>
+              </div>
+
+              <div class="cta-buttons mt-4">
+                <a href="tel:+919876543210" class="btn btn-primary me-2">
+                  <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+                <a href="https://maps.google.com" target="_blank" class="btn btn-outline-success">
+                  <i class="fas fa-directions me-2"></i>Get Directions
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5>Kanda Seed Company</h5>
+          <p>Providing high-quality onion seeds to farmers for over two decades. Our mission is to support agriculture with reliable, high-yielding seed varieties.</p>
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 mb-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt me-2"></i> 123 Farm Road, Agricultural Zone</li>
+            <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+            <li><i class="fas fa-envelope me-2"></i> info@kandaseeds.com</li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+      
+      <div class="text-center">
+        <p>&copy; 2023 Kanda Seed Company. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Form submission handling (frontend only)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show success message
+      document.getElementById('formSuccess').style.display = 'block';
+      
+      // Reset form
+      this.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(function() {
+        document.getElementById('formSuccess').style.display = 'none';
+      }, 5000);
+    });
+  </script>
+
